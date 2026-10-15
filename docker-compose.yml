@@ -1,0 +1,11 @@
+services: 
+  frontend:
+    container_name: frontend_dev
+    build: .
+    ports:
+      - '5173:5173'
+    env_file:
+      - ./.env.development # Load environment variables from .env file
+    volumes:
+      - .:/app # Mounts frontend code for hot reloading
+      - /app/node_modules # Prevents overwriting node_modules
